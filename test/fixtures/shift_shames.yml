@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  emotion_behind_shame: MyText
+  seperate_people_story: MyText
+  shift_to_appriciaton: MyText
+  uncover_emotion_root: MyText
+  realign_with_values: MyText
+
+two:
+  emotion_behind_shame: MyText
+  seperate_people_story: MyText
+  shift_to_appriciaton: MyText
+  uncover_emotion_root: MyText
+  realign_with_values: MyText

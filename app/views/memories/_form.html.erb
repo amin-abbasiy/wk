@@ -1,0 +1,72 @@
+<%= form_with(model: memory) do |form| %>
+  <% if memory.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(memory.errors.count, "error") %> prohibited this memory from being saved:</h2>
+
+      <ul>
+        <% memory.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.cktext_area :content %>
+  </div>
+
+  <div>
+    <%= form.label :picture, style: "display: block" %>
+    <%= form.file_field :picture %>
+  </div>
+
+  <div>
+    <%= form.label :video, style: "display: block" %>
+    <%= form.file_field :video %>
+  </div>
+
+  <div>
+    <%= form.label :feeling, style: "display: block" %>
+    <%= form.cktext_area :feeling, class: "form-control", rows: "5", ckeditor: { language: 'uk'}  %>
+  </div>
+
+  <div>
+    <%= form.label :lessons, style: "display: block" %>
+    <%= form.cktext_area :lessons, class: "form-control", rows: "5", ckeditor: { language: 'uk'}  %>
+  </div>
+
+  <div>
+    <%= form.label :use_cases, style: "display: block" %>
+    <%= form.cktext_area :use_cases, class: "form-control", rows: "5", ckeditor: { language: 'uk'}  %>
+  </div>
+
+  <div>
+    <%= form.label :channeling_ways, style: "display: block" %>
+    <%= form.cktext_area :channeling_ways, class: "form-control", rows: "5", ckeditor: { language: 'uk'}  %>
+  </div>
+
+  <div>
+    <%= form.label :dangers, style: "display: block" %>
+    <%= form.cktext_area :dangers, class: "form-control", rows: "5", ckeditor: { language: 'uk'}  %>
+  </div>
+
+  <div>
+    <%= form.label :conclusions, style: "display: block", for: 'conclusions', class: 'label label-primary' %>
+    <%= form.cktext_area :conclusions, class: "form-control", id: 'conclusions', rows: "5", ckeditor: { language: 'uk'}  %>
+  </div>
+
+  <div>
+    <%= form.label :repeated, style: "display: block" %>
+    <%= form.number_field :repeated %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @interview_cheat_sheet %>
+
+<div>
+  <%= link_to "Edit this interview cheat sheet", edit_interview_cheat_sheet_path(@interview_cheat_sheet), class: 'btn btn-warning' %> |
+  <%= link_to "Back to interview cheat sheets", interview_cheat_sheets_path, class: 'btn btn-success' %>
+
+  <%= button_to "Destroy this interview cheat sheet", @interview_cheat_sheet, method: :delete, class: 'btn btn-danger' %>
+</div>

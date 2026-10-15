@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @reflection %>
+
+<div>
+  <%= link_to "Edit this reflection", edit_reflection_path(@reflection), class: 'btn btn-warning' %> |
+  <%= link_to "Back to reflections", reflections_path, class: 'btn btn-info' %>
+
+  <%= button_to "Destroy this reflection", @reflection, method: :delete, class: 'btn btn-danger' %>
+</div>

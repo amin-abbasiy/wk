@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Shift shames</h1>
+
+<div id="shift_shames">
+  <% @shift_shames.each do |shift_shame| %>
+    <%= render shift_shame %>
+    <p>
+      <%= link_to "Show this shift shame", shift_shame, class: 'btn btn-primary' %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New shift shame", new_shift_shame_path %>

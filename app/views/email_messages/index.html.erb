@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Email messages</h1>
+
+<div class="container mt-4">
+  <div class="row">
+      <% @email_messages.each do |email_message| %>
+        <%= render email_message %>
+      <% end %>
+  </div>
+</div>
+
+<%= link_to "New email message", new_email_message_path %>

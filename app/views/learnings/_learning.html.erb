@@ -1,0 +1,26 @@
+<div class="col-md-6 mb-4">
+  <div class="card">
+    <div class="card-body">
+      <div id="<%= dom_id learning %>">
+        <p>
+          <strong>Title:</strong>
+          <%= learning.title %>
+        </p>
+
+        <p>
+          <strong>Concepts:</strong>
+          <%= raw(learning.concepts) %>
+        </p>
+
+        <p>
+          <strong>Finished:</strong>
+          <%= learning.finished %>
+        </p>
+
+        <p>
+          <%= link_to "Show this learning", learning, class: 'btn btn-success' %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

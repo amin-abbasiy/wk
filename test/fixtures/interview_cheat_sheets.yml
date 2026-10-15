@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2024-07-16 15:46:46
+  location: MyString
+  company: MyString
+  positon: MyString
+  interviewers: MyText
+  company_info: MyText
+  my_pitch: MyText
+  accomplishments_skills: MyText
+  reason_about_position: MyText
+  my_questions: MyText
+  predicted_question_answers: MyText
+
+two:
+  date: 2024-07-16 15:46:46
+  location: MyString
+  company: MyString
+  positon: MyString
+  interviewers: MyText
+  company_info: MyText
+  my_pitch: MyText
+  accomplishments_skills: MyText
+  reason_about_position: MyText
+  my_questions: MyText
+  predicted_question_answers: MyText

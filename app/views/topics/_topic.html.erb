@@ -1,0 +1,9 @@
+<%= render 'layouts/shared/post_card',
+    record: topic,
+    title: topic.title,
+    badge: { text: "Topic", color: "topic" },
+    meta: "Created #{time_ago_in_words(topic.created_at)} ago",
+    content: topic.description,
+    show_path: topic_path(topic),
+    col_size: "col-lg-6"
+%>

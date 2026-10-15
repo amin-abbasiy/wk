@@ -1,0 +1,52 @@
+<%= form_with(model: weekly_plan) do |form| %>
+  <% if weekly_plan.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(weekly_plan.errors.count, "error") %> prohibited this weekly_plan from being saved:</h2>
+
+      <ul>
+        <% weekly_plan.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.label :week, style: "display: block" %>
+    <%= form.number_field :week %>
+  </div>
+
+  <div>
+    <%= form.label :nature, style: "display: block" %>
+    <%= form.select :nature, WeeklyPlan.natures.map { |key, value| [key.humanize, value] } %>
+  </div>
+
+  <div>
+    <%= form.label :notes, style: "display: block" %>
+    <%= form.cktext_area :notes %>
+  </div>
+
+  <div>
+    <%= form.label :reflect, style: "display: block" %>
+    <%= form.cktext_area :reflect %>
+  </div>
+
+  <div>
+    <%= form.label :actions, style: "display: block" %>
+    <%= form.cktext_area :actions %>
+  </div>
+
+  <div>
+    <%= form.label :ideas, style: "display: block" %>
+    <%= form.cktext_area :ideas %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

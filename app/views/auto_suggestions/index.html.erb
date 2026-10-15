@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Auto suggestions</h1>
+
+<div id="auto_suggestions">
+  <% @auto_suggestions.each do |auto_suggestion| %>
+    <%= render auto_suggestion %>
+    <p>
+      <%= link_to "Show this auto suggestion", auto_suggestion %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New auto suggestion", new_auto_suggestion_path %>

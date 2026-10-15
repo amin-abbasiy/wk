@@ -1,0 +1,87 @@
+<p style="color: green"><%= notice %></p>
+<h1>Applications</h1><hr>
+
+<div class="dropdown">
+  <%= link_to "New application", new_job_application_path, class: 'btn btn-primary' %>
+
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="statsDropdown" data-bs-toggle='dropdown' aria-haspopup="true" aria-expanded="false">
+    Stats
+  </button>
+  <div class="dropdown-menu" aria-labelledby="statsDropdown">
+    <button class="dropdown-item" type="button">All: <%= @all %></button>
+    <button class="dropdown-item" type="button">Landed Interview: <%= @landed %></button>
+    <button class="dropdown-item" type="button">Landed Ratio: <%= number_to_percentage(@landed_ratio * 100, precision: 2) %></button>
+  </div>
+
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="statusDropdown" data-bs-toggle='dropdown' aria-haspopup="true" aria-expanded="false">
+    Status
+  </button>
+  <div class="dropdown-menu" aria-labelledby="statusDropdown">
+    <button class="dropdown-item" type="button">In Progress: <%= @in_progress %></button>
+    <button class="dropdown-item" type="button">Interviewing: <%= @interviewing %></button>
+    <button class="dropdown-item" type="button">Rejected: <%= @rejected %></button>
+  </div>
+
+
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle='dropdown' aria-haspopup="true" aria-expanded="false">
+    Month Landings
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <% JobApplication.months_landed.each do |month, landed| %>
+      <button class="dropdown-item" type="button"><%= Date::ABBR_MONTHNAMES[month] %>: <%= landed %></button>
+    <% end %>
+  </div>
+
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle='dropdown' aria-haspopup="true" aria-expanded="false">
+    Weekly Landings
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <% JobApplication.week_applied.each do |week, applied| %>
+      <button class="dropdown-item" type="button"><%= week %>: <%= applied %></button>
+    <% end %>
+  </div>
+
+  <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle='dropdown' aria-haspopup="true" aria-expanded="false">
+    Filter By Status
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <%= link_to "All", job_applications_path, class: 'dropdown-item' %>
+    <% JobApplication.statuses.each do |status| %>
+      <%= link_to status.first.humanize, job_applications_path(filter_status: status), class: 'dropdown-item' %>
+    <% end %>
+  </div>
+</div>
+
+<div style="height: 300px;">
+  <%= bar_chart JobApplication.group(:status).count.map { |key, value| 
+    ["#{key.humanize.titleize} = #{value}", value]
+  }.to_h,
+    title: "Applications by Status",
+    colors: ["#b00"],
+    xtitle: "Status",
+    ytitle: "Count",
+    library: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  %>
+</div>
+
+<% if Rails.env.development? %>
+  <div class="debug-info">
+    <p>Chart data: <%= JobApplication.group(:status).count.inspect %></p>
+  </div>
+<% end %>
+
+<div class="container mt-4">
+  <div class="row">
+      <% @applications.each do |job_application| %>
+        <%= render partial: 'job_application', locals: { job_application: job_application } %>
+      <% end %>
+
+    <%= link_to "New application", new_job_application_path, class: 'btn btn-primary' %>
+  </div>
+</div>

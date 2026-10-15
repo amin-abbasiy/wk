@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="card w-50">
+    <div class="card-body text-center">
+      <div class="my-4">
+        <%= raw @qr_svg %>
+      </div>
+      <% if notice.present? %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <p>
+        Then enter the 6-digit code from your app below to enable 2FA.
+      </p>
+      <%= form_with url: user_path(current_user), method: :put, class: "needs-validation" do %>
+        <div class="mb-3">
+          <%= label_tag :otp_attempt, "Authentication Code", class: "form-label" %>
+          <%= text_field_tag :otp_attempt, nil, class: "form-control", required: true %>
+        </div>
+        <%= submit_tag "Enable 2FA", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

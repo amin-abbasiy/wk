@@ -1,0 +1,48 @@
+<div class="col-md-6 mb-4">
+  <div class="card">
+    <div class="card-body">
+      <div class="media mb-3">
+        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="d-block ui-w-40 rounded-circle" alt="">
+        <div class="media-body ml-3">
+            <strong>Status:</strong>
+             <% JobApplication::STATUS_TO_COLOR.each_pair do |key, value| %>
+                <% @class = "p-3 mb-2 bg-#{value}" if job_application.status == "#{key}" %>
+             <% end %>
+          <h5 class="mb-0"><%= job_application.position_title %></h5>
+            <span class="<%= @class %>"><%= job_application.status %></span>
+          <div class="text-muted small"><%= job_application.created_at.strftime("%Y-%m-%d") %></div>
+        </div>
+      </div>
+      <p>
+        <strong>Company name:</strong>
+        <%= job_application.company_name %>
+      </p>
+      <p>
+        <strong>Position title:</strong>
+        <%= job_application.position_title %>
+      </p>
+      <p>
+        <% single_show = false if single_show.blank? %>
+        <strong>Job description:</strong>
+        <%= single_show ? job_application.job_description&.html_safe : raw(truncate(job_application.job_description&.html_safe, :length => 60))  %>
+      </p>
+      <p>
+        <strong>Feedback:</strong>
+        <%= truncate(job_application.feedback, :length => 60) %>
+      </p>
+    </div>
+    <div class="card-footer">
+      <p>
+        <strong>Resume:</strong>
+        <%= link_to job_application.resume.filename, job_application.resume, class: 'd-inline-block text-muted' if job_application.resume.attached? %>
+      </p>
+      <p>
+        <strong>Cover letter:</strong>
+        <%= link_to job_application.cover_letter.filename, job_application.cover_letter, class: 'd-inline-block text-muted ml-3' if job_application.cover_letter.attached? %>
+      </p>
+    </div>
+    <p><%= link_to "Show this application", job_application, class: 'btn btn-success' %></p>
+  </div>
+</div>
+
+

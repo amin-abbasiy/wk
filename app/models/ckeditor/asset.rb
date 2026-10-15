@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+require "ckeditor/orm/active_record"
+
+class Ckeditor::Asset < ActiveRecord::Base
+  include Ckeditor::Orm::ActiveRecord::AssetBase
+  include Ckeditor::Backend::ActiveStorage
+
+  attr_accessor :data
+
+  has_one_attached :storage_data
+end

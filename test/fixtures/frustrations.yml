@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  content: MyText
+  trash_them: MyText
+  reasons: MyText
+  channeling_techniques: MyText
+  created_purposes: MyText
+  goals_for_purposes: MyText
+  action_plan: MyText
+  emotions_after_action: MyText
+  result_of_emotions: MyText
+  resule_of_action: MyText
+  catchphrase: MyString
+
+two:
+  title: MyString
+  content: MyText
+  trash_them: MyText
+  reasons: MyText
+  channeling_techniques: MyText
+  created_purposes: MyText
+  goals_for_purposes: MyText
+  action_plan: MyText
+  emotions_after_action: MyText
+  result_of_emotions: MyText
+  resule_of_action: MyText
+  catchphrase: MyString

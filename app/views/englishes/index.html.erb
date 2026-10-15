@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Englishes</h1>
+
+<div id="englishes">
+  <div class="container">
+    <div class="row">
+      <% @englishes.each do |english| %>
+        <%= render english %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= render "form", english: English.new %>
+<%= link_to "New english", new_english_path %>

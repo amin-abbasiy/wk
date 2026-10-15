@@ -1,0 +1,23 @@
+<div class="col-md-6 mb-4">
+  <div class="card">
+    <div class="card-body">
+    <% record = result[:class_name].constantize.find(result[:id]) %>
+      <div id="<%= record.id %>">
+
+        <p>
+          <strong>Type:</strong>
+          <%= result[:class_name] %>
+        </p>
+
+          <p>
+            <strong>Title:</strong>
+            <%= record.id %>
+          </p>
+
+        <p>
+          <%= link_to "View Details", result.class.name, class: 'btn btn-primary' %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

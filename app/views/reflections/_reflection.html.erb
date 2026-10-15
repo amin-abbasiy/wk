@@ -1,0 +1,14 @@
+<% nature_colors = { daily: "success", weekly: "primary", monthly: "info", yearly: "warning", work_experience: "olive", practice: "orange", emotion: "pink" } %>
+<%= render 'layouts/shared/post_card',
+    record: reflection,
+    title: reflection.title,
+    badge: { text: reflection.nature.humanize, color: nature_colors[reflection.nature.to_sym] || 'secondary' },
+    meta: "#{reflection.created_at.strftime('%B %d, %Y')} - Week #{reflection.created_at.strftime('%U').to_i}",
+    content: reflection.content,
+    fields: [
+      { label: "Place", value: reflection.place },
+      { label: "Action", value: reflection.action }
+    ],
+    show_path: reflection_path(reflection),
+    col_size: "col-lg-6"
+%>

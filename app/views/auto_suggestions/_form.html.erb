@@ -1,0 +1,42 @@
+<%= form_with(model: auto_suggestion) do |form| %>
+  <% if auto_suggestion.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(auto_suggestion.errors.count, "error") %> prohibited this auto_suggestion from being saved:</h2>
+
+      <ul>
+        <% auto_suggestion.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :idea, style: "display: block" %>
+    <%= form.text_field :idea %>
+  </div>
+
+  <div>
+    <%= form.label :faith, style: "display: block" %>
+    <%= form.text_area :faith %>
+  </div>
+
+  <div>
+    <%= form.label :plan, style: "display: block" %>
+    <%= form.text_area :plan %>
+  </div>
+
+  <div>
+    <%= form.label :action, style: "display: block" %>
+    <%= form.text_area :action %>
+  </div>
+
+  <div>
+    <%= form.label :persistence, style: "display: block" %>
+    <%= form.text_area :persistence %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

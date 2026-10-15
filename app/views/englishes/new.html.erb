@@ -1,0 +1,9 @@
+<h1>New english</h1>
+<%= turbo_frame_tag 'new_phrase', target: '_top' do %>
+  <%= render "form", english: @english %>
+<% end %>
+<br>
+
+<div>
+  <%= link_to "Back to englishes", englishes_path %>
+</div>

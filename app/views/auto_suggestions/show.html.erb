@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @auto_suggestion %>
+
+<div>
+  <%= link_to "Edit this auto suggestion", edit_auto_suggestion_path(@auto_suggestion) %> |
+  <%= link_to "Back to auto suggestions", auto_suggestions_path %>
+
+  <%= button_to "Destroy this auto suggestion", @auto_suggestion, method: :delete %>
+</div>

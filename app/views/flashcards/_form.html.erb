@@ -1,0 +1,37 @@
+<%= form_with(model: flashcard) do |form| %>
+  <% if flashcard.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(flashcard.errors.count, "error") %> prohibited this flashcard from being saved:</h2>
+
+      <ul>
+        <% flashcard.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.cktext_area :content %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.cktext_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.number_field :status %>
+  </div>
+
+  <div>
+    <%= form.label :repetition, style: "display: block" %>
+    <%= form.number_field :repetition %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

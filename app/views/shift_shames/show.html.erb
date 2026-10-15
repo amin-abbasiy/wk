@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @shift_shame %>
+
+<div>
+  <%= link_to "Edit this shift shame", edit_shift_shame_path(@shift_shame), class: 'btn btn-warning' %> |
+  <%= link_to "Back to shift shames", shift_shames_path, class: 'btn btn-info' %>
+
+  <%= button_to "Destroy this shift shame", @shift_shame, method: :delete, class: 'btn btn-danger' %>
+</div>

@@ -1,0 +1,22 @@
+<div id="<%= dom_id flashcard %>">
+  <p>
+    <strong>Content:</strong>
+    <%= flashcard.content.html_safe %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= flashcard.description.html_safe %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= flashcard.status %>
+  </p>
+
+  <p>
+    <strong>Repetition:</strong>
+    <%= flashcard.repetition %>
+  </p>
+
+</div>

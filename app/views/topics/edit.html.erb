@@ -1,0 +1,10 @@
+<h1>Editing topic</h1>
+
+<%= render "form", topic: @topic %>
+
+<br>
+
+<div>
+  <%= link_to "Show this Topic", @topic, class: 'btn btn-success' %> |
+  <%= link_to "Back to Topics", topics_path, class: 'btn btn-info' %>
+</div>

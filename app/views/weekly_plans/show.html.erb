@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @weekly_plan %>
+<%  @weekly_plan.tasks.each do |task| %>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">Task</th>
+      <th scope="col">status</th>
+      <th scope="col">Time</th>
+      <th scope="col">Interval</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row"><%= task.name %></th>
+      <td><%= task.status %></td>
+      <td><%= "#{task.start_time.strftime("%R")} - #{task.end_time.strftime("%R")}" %></td>
+      <td><%= task.interval %></td>
+    </tr>
+    </tbody>
+  </table>
+<% end %>
+
+
+<div>
+  <%= link_to "Edit this weekly plan", edit_weekly_plan_path(@weekly_plan) %> |
+  <%= link_to "Back to weekly plans", weekly_plans_path %>
+
+  <%= button_to "Destroy this weekly plan", @weekly_plan, method: :delete %>
+</div>

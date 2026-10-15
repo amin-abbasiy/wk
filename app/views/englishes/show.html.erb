@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8 col-xl-6">
+      <p style="color: green"><%= notice %></p>
+      <div class="card h-300">
+        <div class="card-body">
+          <h5 class="card-title p-2"><%= @english.word.html_safe %></h5>
+          <hr class="bg-black">
+          <%= @english.definition.html_safe %>
+          <%= audio_tag(@english.audio, controls: true) if @english.audio.attached? %>
+          <div class="d-flex justify-content-between mt-3">
+            <%= link_to "Edit this english", edit_english_path(@english), class: 'btn btn-primary' %>
+            <%= link_to "Back to englishes", englishes_path, "data-turbo-frame" => '_top', class: 'btn btn-secondary' %>
+            <%= button_to "Destroy this english", @english, method: :delete, class: 'btn btn-danger' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

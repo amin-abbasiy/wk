@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-orange shadow-sm sticky-top">
+  <div class="container-fluid px-3 px-lg-5">
+    <a class="navbar-brand fw-bold" href="<%= root_path %>">
+      <span class="brand-icon">🎳</span> The Dude
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <% { "💼 Job Search" => %w[job_applications interview_cheat_sheets email_messages my_offers],
+             "🥛 Emotion" => %w[frustrations shift_shames],
+             "🛋️ Plan" => %w[weekly_plans tasks]}.each_pair do |name, group| %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle nav-link-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= name %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-custom">
+              <% group.each do |model| %>
+                <li><%= link_to model.to_s.humanize, send("#{model}_path"), class: 'dropdown-item' %></li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+
+        <li class="nav-item d-none d-lg-block">
+          <span class="nav-divider"></span>
+        </li>
+
+        <% %w(topics memories stories learnings reflections auto_suggestions flashcards englishes).each do |model| %>
+          <li class="nav-item">
+            <%= link_to model.to_s.humanize, send("#{model}_path"), class: 'nav-link nav-link-custom' %>
+          </li>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <li class="nav-item d-none d-lg-block">
+            <span class="nav-divider"></span>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle nav-link-custom user-menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="user-avatar">🕶️</span>
+              <span class="d-lg-none">Account</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-custom">
+              <li><%= link_to "🕶️ Profile", user_path(current_user), class: 'dropdown-item' %></li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <%= button_to "✌️ Catch ya later", destroy_user_session_path, method: :delete, class: 'dropdown-item text-danger' %>
+              </li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,2 @@
+module MyOffersHelper
+end

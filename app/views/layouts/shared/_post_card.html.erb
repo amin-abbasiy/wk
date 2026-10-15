@@ -1,0 +1,60 @@
+<% col_size ||= "col-lg-6" %>
+<% badge ||= nil %>
+<% meta ||= nil %>
+<% content ||= nil %>
+<% fields ||= [] %>
+<% show_path ||= nil %>
+<% image ||= nil %>
+<% video ||= nil %>
+
+<div class="<%= col_size %> col-12 mb-4">
+  <div class="card post-card h-100 shadow-sm" id="<%= dom_id(record) %>">
+    <% if image.present? %>
+      <div class="post-card-image">
+        <%= image_tag image, class: "card-img-top" %>
+      </div>
+    <% end %>
+
+    <% if video.present? %>
+      <div class="post-card-video">
+        <%= video_tag video, controls: true, class: "w-100" %>
+      </div>
+    <% end %>
+
+    <div class="card-body">
+      <div class="post-card-header mb-3">
+        <% if badge.present? %>
+          <span class="badge bg-<%= badge[:color] || 'secondary' %> mb-2"><%= badge[:text] %></span>
+        <% end %>
+        <% if show_path.present? %>
+          <%= link_to show_path, class: "text-decoration-none" do %>
+            <h5 class="card-title post-card-title mb-1"><%= title.to_s.html_safe %></h5>
+          <% end %>
+        <% else %>
+          <h5 class="card-title post-card-title mb-1"><%= title.to_s.html_safe %></h5>
+        <% end %>
+        <% if meta.present? %>
+          <small class="text-muted"><%= meta %></small>
+        <% end %>
+      </div>
+
+      <% if content.present? %>
+        <div class="post-card-content mb-3">
+          <%= content.to_s.html_safe %>
+        </div>
+      <% end %>
+
+      <% if fields.any? %>
+        <div class="post-card-fields">
+          <% fields.each do |field| %>
+            <% next if field[:value].blank? %>
+            <div class="post-card-field mb-2">
+              <strong class="text-muted small"><%= field[:label] %>:</strong>
+              <div class="field-value"><%= field[:value].to_s.html_safe %></div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Weekly plans</h1>
+
+<div id="weekly_plans">
+  <% @weekly_plans.each do |weekly_plan| %>
+    <%= render weekly_plan %>
+    <p>
+      <%= link_to "Show this weekly plan", weekly_plan %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New weekly plan", new_weekly_plan_path %>

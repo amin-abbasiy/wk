@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Learnings</h1>
+
+<div class="container mt-4">
+  <div class="row">
+      <% @learnings.each do |learning| %>
+        <%= render learning %>
+      <% end %>
+  </div>
+</div>
+
+<%= link_to "New learning", new_learning_path, class: 'btn btn-primary' %>

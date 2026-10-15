@@ -1,0 +1,77 @@
+<%= form_with(model: frustration) do |form| %>
+  <% if frustration.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(frustration.errors.count, "error") %> prohibited this frustration from being saved:</h2>
+
+      <ul>
+        <% frustration.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.cktext_area :content %>
+  </div>
+
+  <div>
+    <%= form.label :trash_them, style: "display: block" %>
+    <%= form.cktext_area :trash_them %>
+  </div>
+
+  <div>
+    <%= form.label :reasons, style: "display: block" %>
+    <%= form.cktext_area :reasons %>
+  </div>
+
+  <div>
+    <%= form.label :channeling_techniques, style: "display: block" %>
+    <%= form.cktext_area :channeling_techniques %>
+  </div>
+
+  <div>
+    <%= form.label :created_purposes, style: "display: block" %>
+    <%= form.cktext_area :created_purposes %>
+  </div>
+
+  <div>
+    <%= form.label :goals_for_purposes, style: "display: block" %>
+    <%= form.cktext_area :goals_for_purposes %>
+  </div>
+
+  <div>
+    <%= form.label :action_plan, style: "display: block" %>
+    <%= form.cktext_area :action_plan %>
+  </div>
+
+  <div>
+    <%= form.label :emotions_after_action, style: "display: block" %>
+    <%= form.cktext_area :emotions_after_action %>
+  </div>
+
+  <div>
+    <%= form.label :result_of_emotions, style: "display: block" %>
+    <%= form.cktext_area :result_of_emotions %>
+  </div>
+
+  <div>
+    <%= form.label :resule_of_action, style: "display: block" %>
+    <%= form.cktext_area :resule_of_action %>
+  </div>
+
+  <div>
+    <%= form.label :catchphrase, style: "display: block" %>
+    <%= form.text_field :catchphrase %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

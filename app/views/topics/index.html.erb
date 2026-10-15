@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <div class="page-header d-flex justify-content-between align-items-center flex-wrap">
+    <div>
+      <h1>📚 Topics</h1>
+      <p class="text-muted mb-0"><%= @topics.count %> topics</p>
+    </div>
+    <%= link_to "＋ New Topic", new_topic_path, class: "btn btn-primary" %>
+  </div>
+
+  <div class="row">
+    <% @topics.each do |topic| %>
+      <%= render topic %>
+    <% end %>
+  </div>
+</div>

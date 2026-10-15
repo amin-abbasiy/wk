@@ -1,0 +1,42 @@
+<%= form_with(model: shift_shame) do |form| %>
+  <% if shift_shame.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(shift_shame.errors.count, "error") %> prohibited this shift_shame from being saved:</h2>
+
+      <ul>
+        <% shift_shame.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :emotion_behind_shame, style: "display: block" %>
+    <%= form.cktext_area :emotion_behind_shame %>
+  </div>
+
+  <div>
+    <%= form.label :seperate_people_story, style: "display: block" %>
+    <%= form.cktext_area :seperate_people_story %>
+  </div>
+
+  <div>
+    <%= form.label :shift_to_appriciaton, style: "display: block" %>
+    <%= form.cktext_area :shift_to_appriciaton %>
+  </div>
+
+  <div>
+    <%= form.label :uncover_emotion_root, style: "display: block" %>
+    <%= form.cktext_area :uncover_emotion_root %>
+  </div>
+
+  <div>
+    <%= form.label :realign_with_values, style: "display: block" %>
+    <%= form.cktext_area :realign_with_values %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

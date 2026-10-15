@@ -1,0 +1,9 @@
+<h1>Editing english</h1>
+<%= render "form", english: @english %>
+
+<br>
+
+<div>
+  <%= link_to "Show this english", @english %> |
+  <%= link_to "Back to englishes", englishes_path, "data-turbo-frame" => '_top' %>
+</div>

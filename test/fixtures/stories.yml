@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nugget: MyText
+  situation: MyText
+  action: MyText
+  result: MyText
+
+two:
+  nugget: MyText
+  situation: MyText
+  action: MyText
+  result: MyText

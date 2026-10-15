@@ -1,0 +1,20 @@
+<%= render 'layouts/shared/post_card',
+    record: memory,
+    title: memory.title,
+    badge: { text: "Memory", color: "memory" },
+    meta: "Created #{time_ago_in_words(memory.created_at)} ago",
+    content: memory.content,
+    image: memory.picture.attached? ? memory.picture : nil,
+    video: memory.video.attached? ? memory.video : nil,
+    fields: [
+      { label: "Feeling", value: memory.feeling },
+      { label: "Lessons", value: memory.lessons },
+      { label: "Use Cases", value: memory.use_cases },
+      { label: "Channeling Ways", value: memory.channeling_ways },
+      { label: "Dangers", value: memory.dangers },
+      { label: "Conclusions", value: memory.conclusions },
+      { label: "Repeated", value: memory.repeated }
+    ],
+    show_path: memory_path(memory),
+    col_size: "col-lg-6"
+%>

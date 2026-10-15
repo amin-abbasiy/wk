@@ -1,0 +1,28 @@
+<div class="col-md-4 mb-4">
+  <div class="card h-300">
+    <div class="card-body">
+      <h5 class="card-title p-2"><%= english.word.html_safe %></h5><hr class="bg-black">
+        <%= english.definition.html_safe %>
+        <%= audio_tag(english.audio, controls: true) if english.audio.attached? %>
+      <div class="d-flex justify-content-between">
+        <%= button_to "Del", @english, method: :delete, class: 'btn btn-danger' %>
+        <%= link_to "Show", english, class: 'btn btn-success' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+    // document.addEventListener('DOMContentLoaded', (event) => {
+    //     document.querySelectorAll('.read-more').forEach(link => {
+    //         link.addEventListener('click', function(event) {
+    //             event.preventDefault();
+    //             const cardText = this.closest('.card-text');
+    //             cardText.querySelector('.short-text').classList.toggle('d-none');
+    //             cardText.querySelector('.full-text').classList.toggle('d-none');
+    //             this.textContent = this.textContent === 'Read More' ? 'Read Less' : 'Read More';
+    //         });
+    //     });
+    // });
+</script>

@@ -1,0 +1,2 @@
+module ShiftShamesHelper
+end

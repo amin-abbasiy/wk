@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Interview cheat sheets</h1>
+
+<div id="interview_cheat_sheets">
+  <% @interview_cheat_sheets.each do |interview_cheat_sheet| %>
+    <%= render interview_cheat_sheet %>
+    <p>
+      <%= link_to "Show this interview cheat sheet", interview_cheat_sheet, class: 'btn btn-info' %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New interview cheat sheet", new_interview_cheat_sheet_path, class: 'btn btn-success' %>

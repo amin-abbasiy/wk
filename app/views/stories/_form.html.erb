@@ -1,0 +1,37 @@
+<%= form_with(model: story) do |form| %>
+  <% if story.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(story.errors.count, "error") %> prohibited this story from being saved:</h2>
+
+      <ul>
+        <% story.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nugget, style: "display: block" %>
+    <%= form.cktext_area :nugget %>
+  </div>
+
+  <div>
+    <%= form.label :situation, style: "display: block" %>
+    <%= form.cktext_area :situation %>
+  </div>
+
+  <div>
+    <%= form.label :action, style: "display: block" %>
+    <%= form.cktext_area :action %>
+  </div>
+
+  <div>
+    <%= form.label :result, style: "display: block" %>
+    <%= form.cktext_area :result %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

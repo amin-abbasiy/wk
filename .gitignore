@@ -1,0 +1,31 @@
+# Local credentials and configuration
+.env
+.env.*
+!.env.example
+/config/master.key
+/config/credentials/*.key
+/config/database.yml
+/config/kaggle.json
+/client_secret_*.json
+/server.key
+/server.crt
+/Two-factor authentication - Hetzner Online.pdf
+
+# Local databases, backups, and uploaded files
+/db/backup/
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+/dump.sql
+/dump.rdb
+/storage/*
+!/storage/.keep
+
+# Runtime and generated files
+/log/*
+!/log/.keep
+/tmp/*
+!/tmp/.keep
+/public/assets/
+/run
+.DS_Store
