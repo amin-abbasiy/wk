@@ -15,10 +15,7 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= render 'layouts/shared/navigation' %>
-      <%= render 'layouts/shared/search' %>
-    <% end %>
+    <%= render 'layouts/shared/navigation' %>
 
     <div class="container mt-2">
       <% if notice.present? %><div class="alert alert-success"><%= notice %></div><% end %>

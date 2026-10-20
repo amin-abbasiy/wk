@@ -49,6 +49,27 @@ class JobApplication < ApplicationRecord
     filled: 'secondary'
   }
 
+  STATUS_CHART_COLORS = {
+    pending: '#E8C66A',
+    offered: '#8BC5A5',
+    rejected: '#D77D86',
+    recruiter_in_progress: '#A2DAE5',
+    rejected_in_recruiter_interview: '#EAB0B6',
+    tech_in_progress: '#85CAD9',
+    rejected_in_tech_interview: '#E198A1',
+    hr_in_progress: '#68B8CC',
+    rejected_in_hr: '#C96877',
+    last_step_in_progress: '#4DA5BC',
+    fake_job: '#B5BDC7',
+    hired: '#64AA84',
+    filled: '#909CA9'
+  }.freeze
+
+  def self.status_chart_data
+    counts = group(:status).count
+    statuses.keys.map { |status| [status.humanize, counts.fetch(status, 0)] }
+  end
+
   scope :applied, -> { JobApplication.where(status: :pending) }
   scope :in_progress_list, -> { JobApplication.where(status: [:recruiter_in_progress, :tech_in_progress, :hr_in_progress, :last_step_in_progress]) }
   scope :rejected, -> { JobApplication.where(status: [:rejected, :rejected_in_recruiter_interview, :rejected_in_tech_interview, :rejected_in_hr] ) }
@@ -99,16 +120,19 @@ class JobApplication < ApplicationRecord
   end
 
   def self.first_month
-    JobApplication.find(1).created_at.month
+    minimum(:created_at)&.month
   end
 
   def self.first_week
-    JobApplication.find(1).created_at.beginning_of_week
+    minimum(:created_at)&.beginning_of_week
   end
 
   def self.months_landed
     @result = {}
-    (first_month..Time.now.month).each { |month| @result[month] = month_landed(month) }
+    month = first_month
+    return @result unless month
+
+    (month..Time.now.month).each { |month| @result[month] = month_landed(month) }
 
     @result
   end
@@ -120,6 +144,7 @@ class JobApplication < ApplicationRecord
   def self.week_applied
     @result = {}
     week = first_week
+    return @result unless week
 
     while Time.now > week do
       @result[week.strftime("%W")] = JobApplication.time_applied(week, week.end_of_week).count

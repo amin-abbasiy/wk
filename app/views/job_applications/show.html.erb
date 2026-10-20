@@ -1,10 +1,11 @@
-<p style="color: green"><%= notice %></p>
+<div class="container py-4">
+  <%= render @application, single_show: true %>
 
-<%= render @application, single_show: true %>
-
-<div>
-  <%= link_to "Edit this application", edit_job_application_path(@application), class: 'btn btn-warning' %> |
-  <%= link_to "Back to applications", job_applications_path, class: 'btn btn-success' %>
-
-  <%= button_to "Destroy this application", @application, method: :delete, class: 'btn btn-danger' %>
+  <div class="d-flex flex-wrap align-items-center gap-2 pt-3 border-top">
+    <%= link_to 'Edit application', edit_job_application_path(@application), class: 'btn btn-primary rounded-pill px-3' %>
+    <%= link_to '← Back to applications', job_applications_path, class: 'btn btn-outline-secondary rounded-pill px-3' %>
+    <%= button_to 'Delete application', @application, method: :delete,
+                  class: 'btn btn-outline-danger rounded-pill px-3',
+                  form: { class: 'ms-sm-auto', data: { turbo_confirm: 'Delete this application? This cannot be undone.' } } %>
+  </div>
 </div>

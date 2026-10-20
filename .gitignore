@@ -29,3 +29,5 @@
 /public/assets/
 /run
 .DS_Store
+
+/config/credentials/development.key

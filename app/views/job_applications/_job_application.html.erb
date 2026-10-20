@@ -1,48 +1,56 @@
-<div class="col-md-6 mb-4">
-  <div class="card">
-    <div class="card-body">
-      <div class="media mb-3">
-        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="d-block ui-w-40 rounded-circle" alt="">
-        <div class="media-body ml-3">
-            <strong>Status:</strong>
-             <% JobApplication::STATUS_TO_COLOR.each_pair do |key, value| %>
-                <% @class = "p-3 mb-2 bg-#{value}" if job_application.status == "#{key}" %>
-             <% end %>
-          <h5 class="mb-0"><%= job_application.position_title %></h5>
-            <span class="<%= @class %>"><%= job_application.status %></span>
-          <div class="text-muted small"><%= job_application.created_at.strftime("%Y-%m-%d") %></div>
+<% single_show = local_assigns.fetch(:single_show, false) %>
+<% status_color = JobApplication::STATUS_TO_COLOR.fetch(job_application.status&.to_sym, 'secondary') %>
+<div class="<%= single_show ? 'col-12' : 'col-md-6' %> mb-4">
+  <article class="card h-100 border-0 shadow-sm rounded-4">
+    <div class="card-body p-4">
+      <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+        <div class="text-break">
+          <p class="small text-muted fw-semibold mb-1"><%= job_application.company_name.presence || 'Unknown company' %></p>
+          <h2 class="h5 fw-bold mb-0">
+            <% if single_show %>
+              <%= job_application.position_title.presence || 'Untitled position' %>
+            <% else %>
+              <%= link_to job_application.position_title.presence || 'Untitled position', job_application, class: 'text-dark text-decoration-none' %>
+            <% end %>
+          </h2>
         </div>
+        <span class="badge rounded-pill text-bg-<%= status_color %> text-wrap lh-base">
+          <%= job_application.status&.humanize || 'No status' %>
+        </span>
       </div>
-      <p>
-        <strong>Company name:</strong>
-        <%= job_application.company_name %>
+
+      <p class="small text-muted mb-0">
+        Applied <time datetime="<%= job_application.created_at.to_date.iso8601 %>"><%= job_application.created_at.strftime('%b %-d, %Y') %></time>
       </p>
-      <p>
-        <strong>Position title:</strong>
-        <%= job_application.position_title %>
-      </p>
-      <p>
-        <% single_show = false if single_show.blank? %>
-        <strong>Job description:</strong>
-        <%= single_show ? job_application.job_description&.html_safe : raw(truncate(job_application.job_description&.html_safe, :length => 60))  %>
-      </p>
-      <p>
-        <strong>Feedback:</strong>
-        <%= truncate(job_application.feedback, :length => 60) %>
-      </p>
+
+      <% if job_application.job_description.present? %>
+        <div class="mt-3 text-break">
+          <% if single_show %>
+            <%= sanitize job_application.job_description %>
+          <% else %>
+            <p class="text-muted mb-0"><%= truncate(strip_tags(job_application.job_description), length: 180) %></p>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% if job_application.feedback.present? %>
+        <div class="bg-light rounded-3 p-3 mt-3 text-break">
+          <h3 class="small fw-semibold mb-1">Feedback</h3>
+          <p class="small text-muted mb-0"><%= single_show ? job_application.feedback : truncate(job_application.feedback, length: 120) %></p>
+        </div>
+      <% end %>
     </div>
-    <div class="card-footer">
-      <p>
-        <strong>Resume:</strong>
-        <%= link_to job_application.resume.filename, job_application.resume, class: 'd-inline-block text-muted' if job_application.resume.attached? %>
-      </p>
-      <p>
-        <strong>Cover letter:</strong>
-        <%= link_to job_application.cover_letter.filename, job_application.cover_letter, class: 'd-inline-block text-muted ml-3' if job_application.cover_letter.attached? %>
-      </p>
+
+    <% if !single_show || job_application.resume.attached? || job_application.cover_letter.attached? %>
+    <div class="card-footer bg-transparent border-top border-light px-4 py-3">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <div class="d-flex flex-wrap gap-3 small">
+          <%= link_to 'Resume', job_application.resume, class: 'text-secondary', aria: { label: "Resume: #{job_application.resume.filename}" } if job_application.resume.attached? %>
+          <%= link_to 'Cover letter', job_application.cover_letter, class: 'text-secondary', aria: { label: "Cover letter: #{job_application.cover_letter.filename}" } if job_application.cover_letter.attached? %>
+        </div>
+        <%= link_to 'View application →', job_application, class: 'btn btn-outline-primary btn-sm rounded-pill px-3' unless single_show %>
+      </div>
     </div>
-    <p><%= link_to "Show this application", job_application, class: 'btn btn-success' %></p>
-  </div>
+    <% end %>
+  </article>
 </div>
-
-

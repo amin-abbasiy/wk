@@ -4,10 +4,16 @@ class JobApplicationsController < ApplicationController
   # before_action :authorize_job_application, only: %i[show edit update destroy]
 
   def index    
+    @query = params[:query].to_s.strip
+    applications = current_user.job_applications
+    if @query.present?
+      applications = applications.where("company_name ILIKE ?", "%#{JobApplication.sanitize_sql_like(@query)}%")
+    end
+
     if params[:filter_status].blank?
-      @applications = current_user.job_applications.order(created_at: :desc).sort_by(&:status)
+      @applications = applications.order(created_at: :desc).sort_by(&:status)
     else
-      @applications = current_user.job_applications.where(status: params[:filter_status]).order(created_at: :desc)
+      @applications = applications.where(status: params[:filter_status]).order(created_at: :desc)
     end
     @all = @applications.count
     @landed = current_user.job_applications.landed.count
@@ -15,6 +21,10 @@ class JobApplicationsController < ApplicationController
     @in_progress = current_user.job_applications.in_progress.count
     @rejected = current_user.job_applications.rejected.count
     @interviewing = current_user.job_applications.interviewing.count
+    @status_chart_data = current_user.job_applications.status_chart_data
+    @status_chart_colors = JobApplication.statuses.keys.map do |status|
+      JobApplication::STATUS_CHART_COLORS.fetch(status.to_sym)
+    end
   end
 
   def statistics
