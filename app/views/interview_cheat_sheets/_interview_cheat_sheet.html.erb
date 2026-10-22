@@ -1,7 +1,5 @@
-<div class="col-md-10 mb-10">
-  <div class="card h-300">
-    <div class="card-body">
-
+<div class="card h-100 shadow-sm">
+  <div class="card-body">
     <p>
       <strong>Instruction</strong>
       You want to research everything about the company from as many sources as you can
@@ -15,7 +13,6 @@
       2. Most organizations use the job description to explain exactly what they're looking for in an applicant
       3. Internalize its key details and try to incorporate them into your answers to show cultural fit: while I need to keep my stories intact in since it takes
       time to mater them its important not to destroy literacy in stories for this
-
     </p>
     <div id="<%= dom_id interview_cheat_sheet %>">
       <p>
@@ -38,43 +35,41 @@
         <%= interview_cheat_sheet.positon %>
       </p>
 
-      <p>
+      <div class="mb-3">
         <strong>Interviewers:</strong>
         <%= interview_cheat_sheet.interviewers.html_safe %>
-      </p>
+      </div>
 
-      <p>
+      <div class="mb-3">
         <strong>Company info:</strong>
         <%= interview_cheat_sheet.company_info.html_safe %>
-      </p>
+      </div>
 
-      <p>
+      <div class="mb-3">
         <strong>My pitch:</strong>
         <%= interview_cheat_sheet.my_pitch.html_safe %>
-      </p>
+      </div>
 
-      <p>
+      <div class="mb-3">
         <strong>Accomplishments skills:</strong>
         <%= interview_cheat_sheet.accomplishments_skills.html_safe %>
-      </p>
+      </div>
 
-      <p>
+      <div class="mb-3">
         <strong>Reason about position:</strong>
         <%= interview_cheat_sheet.reason_about_position.html_safe %>
-      </p>
-      <p>
+      </div>
+
+      <div class="mb-3">
         <strong>My questions:</strong>
         Offering specific recommendations for their work shows my passion for the job.
         <%= interview_cheat_sheet.my_questions.html_safe %>
-      </p>
+      </div>
 
-      <p>
+      <div class="mb-0">
         <strong>Predicted question answers:</strong>
         <%= interview_cheat_sheet.predicted_question_answers.html_safe %>
-      </p>
-
-    </div>
-
+      </div>
     </div>
   </div>
 </div>

@@ -1,21 +1,11 @@
 <%= form_with(model: english) do |form| %>
-  <% if english.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(english.errors.count, "error") %> prohibited this english from being saved:</h2>
+  <%= render "layouts/shared/form_errors", record: english, resource_name: "english" %>
 
-      <ul>
-        <% english.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :word %>
+  <div class="mb-3">
+    <%= form.label :word, class: "form-label" %>
     <%= form.text_field :word, class: 'form-control' %>
   </div>
-  <div>
-    <%= form.submit "Create New Phrase" , class: 'btn btn-primary' %>
+  <div class="mt-4">
+    <%= form.submit "Create New Phrase", class: 'btn btn-primary' %>
   </div>
 <% end %>

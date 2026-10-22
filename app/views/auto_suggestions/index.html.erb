@@ -1,14 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Auto suggestions</h1>
-
-<div id="auto_suggestions">
-  <% @auto_suggestions.each do |auto_suggestion| %>
-    <%= render auto_suggestion %>
-    <p>
-      <%= link_to "Show this auto suggestion", auto_suggestion %>
-    </p>
-  <% end %>
+<div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+  <h1 class="h2 mb-0">Auto suggestions</h1>
+  <%= link_to "New auto suggestion", new_auto_suggestion_path, class: "btn btn-primary" %>
 </div>
 
-<%= link_to "New auto suggestion", new_auto_suggestion_path %>
+<div id="auto_suggestions" class="vstack gap-4">
+  <% @auto_suggestions.each do |auto_suggestion| %>
+    <div>
+      <%= render auto_suggestion %>
+      <p class="mt-2 mb-0">
+        <%= link_to "Show this auto suggestion", auto_suggestion, class: "btn btn-outline-primary btn-sm" %>
+      </p>
+    </div>
+  <% end %>
+</div>

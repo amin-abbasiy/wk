@@ -1,14 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Flashcards</h1>
-
-<div id="flashcards">
-  <% @flashcards.each do |flashcard| %>
-    <%= render flashcard %>
-    <p>
-      <%= link_to "Show this flashcard", flashcard %>
-    </p>
-  <% end %>
+<div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+  <h1 class="h2 mb-0">Flashcards</h1>
+  <%= link_to "New flashcard", new_flashcard_path, class: "btn btn-primary" %>
 </div>
 
-<%= link_to "New flashcard", new_flashcard_path %>
+<div id="flashcards" class="vstack gap-4">
+  <% @flashcards.each do |flashcard| %>
+    <div>
+      <%= render flashcard %>
+      <p class="mt-2 mb-0">
+        <%= link_to "Show this flashcard", flashcard, class: "btn btn-outline-primary btn-sm" %>
+      </p>
+    </div>
+  <% end %>
+</div>

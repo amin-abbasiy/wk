@@ -1,14 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Shift shames</h1>
-
-<div id="shift_shames">
-  <% @shift_shames.each do |shift_shame| %>
-    <%= render shift_shame %>
-    <p>
-      <%= link_to "Show this shift shame", shift_shame, class: 'btn btn-primary' %>
-    </p>
-  <% end %>
+<div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+  <h1 class="h2 mb-0">Shift shames</h1>
+  <%= link_to "New shift shame", new_shift_shame_path, class: "btn btn-primary" %>
 </div>
 
-<%= link_to "New shift shame", new_shift_shame_path %>
+<div id="shift_shames" class="vstack gap-4">
+  <% @shift_shames.each do |shift_shame| %>
+    <div>
+      <%= render shift_shame %>
+      <p class="mt-2 mb-0">
+        <%= link_to "Show this shift shame", shift_shame, class: "btn btn-outline-primary btn-sm" %>
+      </p>
+    </div>
+  <% end %>
+</div>

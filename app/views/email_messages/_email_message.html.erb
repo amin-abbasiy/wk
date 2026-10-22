@@ -1,10 +1,10 @@
-<div class="col-md-6 mb-4">
-  <div class="card">
-    <div class="card-body">
-        <%= email_message.message.html_safe %>
-        <hr style="background-color: black">
-        <%= email_message.response.html_safe %>
-        <%= link_to "Show this email message", email_message, class: 'btn btn-info' %>
+<div class="card h-100 shadow-sm">
+  <div class="card-body">
+    <%= email_message.message.html_safe %>
+    <hr>
+    <%= email_message.response.html_safe %>
+    <div class="mt-3">
+      <%= link_to "Show this email message", email_message, class: 'btn btn-outline-primary btn-sm' %>
     </div>
   </div>
 </div>

@@ -1,52 +1,42 @@
 <%= form_with(model: weekly_plan) do |form| %>
-  <% if weekly_plan.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(weekly_plan.errors.count, "error") %> prohibited this weekly_plan from being saved:</h2>
+  <%= render "layouts/shared/form_errors", record: weekly_plan, resource_name: "weekly_plan" %>
 
-      <ul>
-        <% weekly_plan.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
     <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :week, style: "display: block" %>
-    <%= form.number_field :week %>
+  <div class="mb-3">
+    <%= form.label :week, class: "form-label" %>
+    <%= form.number_field :week, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :nature, style: "display: block" %>
-    <%= form.select :nature, WeeklyPlan.natures.map { |key, value| [key.humanize, value] } %>
+  <div class="mb-3">
+    <%= form.label :nature, class: "form-label" %>
+    <%= form.select :nature, WeeklyPlan.natures.map { |key, value| [key.humanize, value] }, {}, class: "form-select" %>
   </div>
 
-  <div>
-    <%= form.label :notes, style: "display: block" %>
-    <%= form.cktext_area :notes %>
+  <div class="mb-3">
+    <%= form.label :notes, class: "form-label" %>
+    <%= form.cktext_area :notes, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :reflect, style: "display: block" %>
-    <%= form.cktext_area :reflect %>
+  <div class="mb-3">
+    <%= form.label :reflect, class: "form-label" %>
+    <%= form.cktext_area :reflect, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :actions, style: "display: block" %>
-    <%= form.cktext_area :actions %>
+  <div class="mb-3">
+    <%= form.label :actions, class: "form-label" %>
+    <%= form.cktext_area :actions, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :ideas, style: "display: block" %>
-    <%= form.cktext_area :ideas %>
+  <div class="mb-3">
+    <%= form.label :ideas, class: "form-label" %>
+    <%= form.cktext_area :ideas, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-4">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

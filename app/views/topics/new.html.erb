@@ -1,9 +1,9 @@
-<h1>New topic</h1>
+<%= render layout: "layouts/shared/form_page" do %>
+  <h1 class="h2 fw-bold mb-4">New topic</h1>
 
-<%= render "form", topic: @topic %>
+  <%= render "form", topic: @topic %>
 
-<br>
-
-<div>
-  <%= link_to "Back to topics", topics_path %>
-</div>
+  <div class="d-flex flex-wrap gap-2 mt-4 pt-3 border-top">
+    <%= link_to "Back to topics", topics_path, class: "btn btn-outline-secondary" %>
+  </div>
+<% end %>

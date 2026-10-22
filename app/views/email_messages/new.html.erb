@@ -1,9 +1,9 @@
-<h1>New email message</h1>
+<%= render layout: "layouts/shared/form_page" do %>
+  <h1 class="h2 fw-bold mb-4">New email message</h1>
 
-<%= render "form", email_message: @email_message %>
+  <%= render "form", email_message: @email_message %>
 
-<br>
-
-<div>
-  <%= link_to "Back to email messages", email_messages_path %>
-</div>
+  <div class="d-flex flex-wrap gap-2 mt-4 pt-3 border-top">
+    <%= link_to "Back to email messages", email_messages_path, class: "btn btn-outline-secondary" %>
+  </div>
+<% end %>

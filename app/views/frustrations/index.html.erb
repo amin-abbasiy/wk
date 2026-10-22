@@ -1,14 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Frustrations</h1>
-
-<div id="frustrations">
-  <% @frustrations.each do |frustration| %>
-    <%= render frustration %>
-    <p>
-      <%= link_to "Show this frustration", frustration %>
-    </p>
-  <% end %>
+<div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+  <h1 class="h2 mb-0">Frustrations</h1>
+  <%= link_to "New frustration", new_frustration_path, class: "btn btn-primary" %>
 </div>
 
-<%= link_to "New frustration", new_frustration_path %>
+<div id="frustrations" class="vstack gap-4">
+  <% @frustrations.each do |frustration| %>
+    <div>
+      <%= render frustration %>
+      <p class="mt-2 mb-0">
+        <%= link_to "Show this frustration", frustration, class: "btn btn-outline-primary btn-sm" %>
+      </p>
+    </div>
+  <% end %>
+</div>

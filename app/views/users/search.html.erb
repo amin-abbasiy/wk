@@ -1,8 +1,7 @@
-<div class="container mt-4">
-  <h1>Search Results</h1>
-  <div class="row">
-    <% @results.each do |result| %>
-      <%= render partial: "users/result", locals: { result: result } %>
-    <% end %>
-  </div>
+<h1 class="h2 fw-bold mb-4">Search Results</h1>
+
+<div class="row">
+  <% @results.each do |result| %>
+    <%= render partial: "users/result", locals: { result: result } %>
+  <% end %>
 </div>

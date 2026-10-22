@@ -1,10 +1,10 @@
-<h1>Editing reflection</h1>
+<%= render layout: "layouts/shared/form_page" do %>
+  <h1 class="h2 fw-bold mb-4">Editing reflection</h1>
 
-<%= render "form", reflection: @reflection %>
+  <%= render "form", reflection: @reflection %>
 
-<br>
-
-<div>
-  <%= link_to "Show this reflection", @reflection %> |
-  <%= link_to "Back to reflections", reflections_path %>
-</div>
+  <div class="d-flex flex-wrap gap-2 mt-4 pt-3 border-top">
+    <%= link_to "Show this reflection", @reflection, class: "btn btn-outline-primary" %>
+    <%= link_to "Back to reflections", reflections_path, class: "btn btn-outline-secondary" %>
+  </div>
+<% end %>

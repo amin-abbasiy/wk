@@ -1,33 +1,28 @@
-<div class="col-md-10 mb-10">
-  <div class="card h-300">
-    <div class="card-body">
-      <div id="<%= dom_id shift_shame %>">
-        <p>
-          <strong>Emotion behind shame:</strong>
-          <%= shift_shame.emotion_behind_shame.html_safe %>
-        </p>
+<div class="card h-100 shadow-sm">
+  <div class="card-body" id="<%= dom_id shift_shame %>">
+    <div class="mb-3">
+      <strong>Emotion behind shame:</strong>
+      <%= shift_shame.emotion_behind_shame.html_safe %>
+    </div>
 
-        <p>
-          <strong>Seperate people story:</strong>
-          <%= shift_shame.seperate_people_story.html_safe %>
-        </p>
+    <div class="mb-3">
+      <strong>Seperate people story:</strong>
+      <%= shift_shame.seperate_people_story.html_safe %>
+    </div>
 
-        <p>
-          <strong>Shift to appriciaton:</strong>
-          <%= shift_shame.shift_to_appriciaton.html_safe %>
-        </p>
+    <div class="mb-3">
+      <strong>Shift to appriciaton:</strong>
+      <%= shift_shame.shift_to_appriciaton.html_safe %>
+    </div>
 
-        <p>
-          <strong>Uncover emotion root:</strong>
-          <%= shift_shame.uncover_emotion_root.html_safe %>
-        </p>
+    <div class="mb-3">
+      <strong>Uncover emotion root:</strong>
+      <%= shift_shame.uncover_emotion_root.html_safe %>
+    </div>
 
-        <p>
-          <strong>Realign with values:</strong>
-          <%= shift_shame.realign_with_values.html_safe %>
-        </p>
-
-      </div>
+    <div class="mb-0">
+      <strong>Realign with values:</strong>
+      <%= shift_shame.realign_with_values.html_safe %>
     </div>
   </div>
 </div>

@@ -1,21 +1,23 @@
-<div class="container mt-5">
-  <div class="card">
-    <div class="card-header bg-primary text-white">
-      <h1 class="h3">Profile</h1>
-    </div>
-    <div class="card-body">
-      <p><strong>Email:</strong> <%= @user.email %></p>
-      <p><strong>Username:</strong> <%= @user.username %></p>
-      <% if @user.otp_required_for_login? %>
-        <p class="alert alert-success">Two-Factor Authentication is enabled.</p>
-        <p>
-          <%= form_with url: disable_2fa_path, method: :put, class: "d-inline" do %>
-            <%= submit_tag "Disable 2FA", class: "btn btn-danger mt-3" %>
-          <% end %>
-        </p>
-      <% else %>
-        <%= link_to "Enable 2FA", enable_2fa_path, class: "btn btn-primary mt-3" %>
-      <% end %>
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-8">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h1 class="h3 mb-0">Profile</h1>
+      </div>
+      <div class="card-body">
+        <p><strong>Email:</strong> <%= @user.email %></p>
+        <p><strong>Username:</strong> <%= @user.username %></p>
+        <% if @user.otp_required_for_login? %>
+          <p class="alert alert-success">Two-Factor Authentication is enabled.</p>
+          <div>
+            <%= form_with url: disable_2fa_path, method: :put, class: "d-inline" do %>
+              <%= submit_tag "Disable 2FA", class: "btn btn-danger mt-3" %>
+            <% end %>
+          </div>
+        <% else %>
+          <%= link_to "Enable 2FA", enable_2fa_path, class: "btn btn-primary mt-3" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

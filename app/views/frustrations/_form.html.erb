@@ -1,77 +1,67 @@
 <%= form_with(model: frustration) do |form| %>
-  <% if frustration.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(frustration.errors.count, "error") %> prohibited this frustration from being saved:</h2>
+  <%= render "layouts/shared/form_errors", record: frustration, resource_name: "frustration" %>
 
-      <ul>
-        <% frustration.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.cktext_area :content %>
+  <div class="mb-3">
+    <%= form.label :content, class: "form-label" %>
+    <%= form.cktext_area :content, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :trash_them, style: "display: block" %>
-    <%= form.cktext_area :trash_them %>
+  <div class="mb-3">
+    <%= form.label :trash_them, class: "form-label" %>
+    <%= form.cktext_area :trash_them, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :reasons, style: "display: block" %>
-    <%= form.cktext_area :reasons %>
+  <div class="mb-3">
+    <%= form.label :reasons, class: "form-label" %>
+    <%= form.cktext_area :reasons, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :channeling_techniques, style: "display: block" %>
-    <%= form.cktext_area :channeling_techniques %>
+  <div class="mb-3">
+    <%= form.label :channeling_techniques, class: "form-label" %>
+    <%= form.cktext_area :channeling_techniques, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :created_purposes, style: "display: block" %>
-    <%= form.cktext_area :created_purposes %>
+  <div class="mb-3">
+    <%= form.label :created_purposes, class: "form-label" %>
+    <%= form.cktext_area :created_purposes, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :goals_for_purposes, style: "display: block" %>
-    <%= form.cktext_area :goals_for_purposes %>
+  <div class="mb-3">
+    <%= form.label :goals_for_purposes, class: "form-label" %>
+    <%= form.cktext_area :goals_for_purposes, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :action_plan, style: "display: block" %>
-    <%= form.cktext_area :action_plan %>
+  <div class="mb-3">
+    <%= form.label :action_plan, class: "form-label" %>
+    <%= form.cktext_area :action_plan, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :emotions_after_action, style: "display: block" %>
-    <%= form.cktext_area :emotions_after_action %>
+  <div class="mb-3">
+    <%= form.label :emotions_after_action, class: "form-label" %>
+    <%= form.cktext_area :emotions_after_action, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :result_of_emotions, style: "display: block" %>
-    <%= form.cktext_area :result_of_emotions %>
+  <div class="mb-3">
+    <%= form.label :result_of_emotions, class: "form-label" %>
+    <%= form.cktext_area :result_of_emotions, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :resule_of_action, style: "display: block" %>
-    <%= form.cktext_area :resule_of_action %>
+  <div class="mb-3">
+    <%= form.label :resule_of_action, class: "form-label" %>
+    <%= form.cktext_area :resule_of_action, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :catchphrase, style: "display: block" %>
-    <%= form.text_field :catchphrase %>
+  <div class="mb-3">
+    <%= form.label :catchphrase, class: "form-label" %>
+    <%= form.text_field :catchphrase, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-4">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

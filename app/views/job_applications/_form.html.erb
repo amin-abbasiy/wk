@@ -1,50 +1,42 @@
 <%= form_with(model: job_application) do |form| %>
-  <% if job_application.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(job_application.errors.count, "error") %> prohibited this application from being saved:</h2>
+  <%= render "layouts/shared/form_errors", record: job_application, resource_name: "application" %>
 
-      <ul>
-        <% job_application.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :company_name, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :company_name, class: "form-label" %>
     <%= form.text_field :company_name, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :position_title, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :position_title, class: "form-label" %>
     <%= form.text_field :position_title, class: 'form-control' %>
   </div>
 
-  <%= form.label :status, style: "display: block" %>
-  <%= form.select :status, JobApplication.statuses.keys.map { |status| [status.humanize, status] }, class: 'form-select form-select-lg mb-3' %>
+  <div class="mb-3">
+    <%= form.label :status, class: "form-label" %>
+    <%= form.select :status, JobApplication.statuses.keys.map { |status| [status.humanize, status] }, {}, class: 'form-select' %>
+  </div>
 
   <div class="mb-3">
-    <%= form.label :resume, style: "display: block", for: "formFile1", class: "form-label" %>
+    <%= form.label :resume, for: "formFile1", class: "form-label" %>
     <%= form.file_field :resume, class: 'form-control', id: "formFile1" %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :cover_letter, style: "display: block", for: "formFile2", class: "form-label" %>
+    <%= form.label :cover_letter, for: "formFile2", class: "form-label" %>
     <%= form.file_field :cover_letter, class: 'form-control', id: "formFile2" %>
   </div>
 
-  <div>
-    <%= form.label :job_description, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :job_description, class: "form-label" %>
     <%= form.cktext_area :job_description, class: 'form-control', rows: "5" %>
   </div>
 
-  <div>
-    <%= form.label :feedback, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :feedback, class: "form-label" %>
     <%= form.cktext_area :feedback, class: 'form-control', rows: "5" %>
   </div>
 
-  <div>
-    <%= form.submit 'Submit', class: 'btn btn-success' %>
+  <div class="mt-4">
+    <%= form.submit 'Submit', class: 'btn btn-primary' %>
   </div>
 <% end %>

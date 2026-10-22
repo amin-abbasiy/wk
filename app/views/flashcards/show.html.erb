@@ -1,10 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @flashcard %>
 
-<div>
-  <%= link_to "Edit this flashcard", edit_flashcard_path(@flashcard) %> |
-  <%= link_to "Back to flashcards", flashcards_path %>
+<div class="d-flex flex-wrap align-items-center gap-2 mt-4 pt-3 border-top">
+  <%= link_to "Edit this flashcard", edit_flashcard_path(@flashcard), class: "btn btn-primary" %>
+  <%= link_to "Back to flashcards", flashcards_path, class: "btn btn-outline-secondary" %>
 
-  <%= button_to "Destroy this flashcard", @flashcard, method: :delete %>
+  <%= button_to "Destroy this flashcard", @flashcard, method: :delete, class: "btn btn-outline-danger" %>
 </div>

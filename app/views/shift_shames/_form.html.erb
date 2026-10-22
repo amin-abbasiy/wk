@@ -1,42 +1,32 @@
 <%= form_with(model: shift_shame) do |form| %>
-  <% if shift_shame.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(shift_shame.errors.count, "error") %> prohibited this shift_shame from being saved:</h2>
+  <%= render "layouts/shared/form_errors", record: shift_shame, resource_name: "shift_shame" %>
 
-      <ul>
-        <% shift_shame.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :emotion_behind_shame, style: "display: block" %>
-    <%= form.cktext_area :emotion_behind_shame %>
+  <div class="mb-3">
+    <%= form.label :emotion_behind_shame, class: "form-label" %>
+    <%= form.cktext_area :emotion_behind_shame, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :seperate_people_story, style: "display: block" %>
-    <%= form.cktext_area :seperate_people_story %>
+  <div class="mb-3">
+    <%= form.label :seperate_people_story, class: "form-label" %>
+    <%= form.cktext_area :seperate_people_story, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :shift_to_appriciaton, style: "display: block" %>
-    <%= form.cktext_area :shift_to_appriciaton %>
+  <div class="mb-3">
+    <%= form.label :shift_to_appriciaton, class: "form-label" %>
+    <%= form.cktext_area :shift_to_appriciaton, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :uncover_emotion_root, style: "display: block" %>
-    <%= form.cktext_area :uncover_emotion_root %>
+  <div class="mb-3">
+    <%= form.label :uncover_emotion_root, class: "form-label" %>
+    <%= form.cktext_area :uncover_emotion_root, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :realign_with_values, style: "display: block" %>
-    <%= form.cktext_area :realign_with_values %>
+  <div class="mb-3">
+    <%= form.label :realign_with_values, class: "form-label" %>
+    <%= form.cktext_area :realign_with_values, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-4">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

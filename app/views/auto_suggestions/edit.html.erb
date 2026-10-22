@@ -1,10 +1,10 @@
-<h1>Editing auto suggestion</h1>
+<%= render layout: "layouts/shared/form_page" do %>
+  <h1 class="h2 fw-bold mb-4">Editing auto suggestion</h1>
 
-<%= render "form", auto_suggestion: @auto_suggestion %>
+  <%= render "form", auto_suggestion: @auto_suggestion %>
 
-<br>
-
-<div>
-  <%= link_to "Show this auto suggestion", @auto_suggestion %> |
-  <%= link_to "Back to auto suggestions", auto_suggestions_path %>
-</div>
+  <div class="d-flex flex-wrap gap-2 mt-4 pt-3 border-top">
+    <%= link_to "Show this auto suggestion", @auto_suggestion, class: "btn btn-outline-primary" %>
+    <%= link_to "Back to auto suggestions", auto_suggestions_path, class: "btn btn-outline-secondary" %>
+  </div>
+<% end %>
