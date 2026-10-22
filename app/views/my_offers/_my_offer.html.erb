@@ -1,24 +1,22 @@
-<div class="col-md-6 mb-4">
-  <div class="card">
-    <div class="card-body">
-      <div id="<%= dom_id my_offer %>">
-        <p>
-          <strong>Title:</strong>
-          <%= my_offer.title %>
-        </p>
+<div class="card h-100 shadow-sm">
+  <div class="card-body" id="<%= dom_id my_offer %>">
+    <p>
+      <strong>Title:</strong>
+      <%= my_offer.title %>
+    </p>
 
-        <p>
-          <strong>Story:</strong>
-          <%= my_offer.story.html_safe %>
-        </p>
+    <div class="mb-3">
+      <strong>Story:</strong>
+      <%= my_offer.story.html_safe %>
+    </div>
 
-        <p>
-          <strong>Present:</strong>
-          <%= my_offer.present.html_safe %>
-        </p>
+    <div class="mb-3">
+      <strong>Present:</strong>
+      <%= my_offer.present.html_safe %>
+    </div>
 
-        <p><%= link_to "Show this my offer", my_offer %></p>
-      </div>
+    <div class="mt-3">
+      <%= link_to "Show this my offer", my_offer, class: "btn btn-outline-primary btn-sm" %>
     </div>
   </div>
 </div>

@@ -1,72 +1,62 @@
 <%= form_with(model: memory) do |form| %>
-  <% if memory.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(memory.errors.count, "error") %> prohibited this memory from being saved:</h2>
+  <%= render "layouts/shared/form_errors", record: memory, resource_name: "memory" %>
 
-      <ul>
-        <% memory.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.cktext_area :content %>
+  <div class="mb-3">
+    <%= form.label :content, class: "form-label" %>
+    <%= form.cktext_area :content, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :picture, style: "display: block" %>
-    <%= form.file_field :picture %>
+  <div class="mb-3">
+    <%= form.label :picture, class: "form-label" %>
+    <%= form.file_field :picture, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :video, style: "display: block" %>
-    <%= form.file_field :video %>
+  <div class="mb-3">
+    <%= form.label :video, class: "form-label" %>
+    <%= form.file_field :video, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :feeling, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :feeling, class: "form-label" %>
     <%= form.cktext_area :feeling, class: "form-control", rows: "5", ckeditor: { language: 'uk'}  %>
   </div>
 
-  <div>
-    <%= form.label :lessons, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :lessons, class: "form-label" %>
     <%= form.cktext_area :lessons, class: "form-control", rows: "5", ckeditor: { language: 'uk'}  %>
   </div>
 
-  <div>
-    <%= form.label :use_cases, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :use_cases, class: "form-label" %>
     <%= form.cktext_area :use_cases, class: "form-control", rows: "5", ckeditor: { language: 'uk'}  %>
   </div>
 
-  <div>
-    <%= form.label :channeling_ways, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :channeling_ways, class: "form-label" %>
     <%= form.cktext_area :channeling_ways, class: "form-control", rows: "5", ckeditor: { language: 'uk'}  %>
   </div>
 
-  <div>
-    <%= form.label :dangers, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :dangers, class: "form-label" %>
     <%= form.cktext_area :dangers, class: "form-control", rows: "5", ckeditor: { language: 'uk'}  %>
   </div>
 
-  <div>
-    <%= form.label :conclusions, style: "display: block", for: 'conclusions', class: 'label label-primary' %>
+  <div class="mb-3">
+    <%= form.label :conclusions, for: 'conclusions', class: 'form-label' %>
     <%= form.cktext_area :conclusions, class: "form-control", id: 'conclusions', rows: "5", ckeditor: { language: 'uk'}  %>
   </div>
 
-  <div>
-    <%= form.label :repeated, style: "display: block" %>
-    <%= form.number_field :repeated %>
+  <div class="mb-3">
+    <%= form.label :repeated, class: "form-label" %>
+    <%= form.number_field :repeated, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-4">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

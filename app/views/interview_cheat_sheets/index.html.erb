@@ -1,14 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Interview cheat sheets</h1>
-
-<div id="interview_cheat_sheets">
-  <% @interview_cheat_sheets.each do |interview_cheat_sheet| %>
-    <%= render interview_cheat_sheet %>
-    <p>
-      <%= link_to "Show this interview cheat sheet", interview_cheat_sheet, class: 'btn btn-info' %>
-    </p>
-  <% end %>
+<div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+  <h1 class="h2 mb-0">Interview cheat sheets</h1>
+  <%= link_to "New interview cheat sheet", new_interview_cheat_sheet_path, class: "btn btn-primary" %>
 </div>
 
-<%= link_to "New interview cheat sheet", new_interview_cheat_sheet_path, class: 'btn btn-success' %>
+<div id="interview_cheat_sheets" class="vstack gap-4">
+  <% @interview_cheat_sheets.each do |interview_cheat_sheet| %>
+    <div>
+      <%= render interview_cheat_sheet %>
+      <p class="mt-2 mb-0">
+        <%= link_to "Show this interview cheat sheet", interview_cheat_sheet, class: "btn btn-outline-primary btn-sm" %>
+      </p>
+    </div>
+  <% end %>
+</div>

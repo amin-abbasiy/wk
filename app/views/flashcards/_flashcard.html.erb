@@ -1,13 +1,13 @@
-<div id="<%= dom_id flashcard %>">
-  <p>
+<div class="card card-body shadow-sm" id="<%= dom_id flashcard %>">
+  <div class="mb-3">
     <strong>Content:</strong>
     <%= flashcard.content.html_safe %>
-  </p>
+  </div>
 
-  <p>
+  <div class="mb-3">
     <strong>Description:</strong>
     <%= flashcard.description.html_safe %>
-  </p>
+  </div>
 
   <p>
     <strong>Status:</strong>

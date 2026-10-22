@@ -1,7 +1,7 @@
-<div class="col-md-6 mb-4">
-  <div class="card">
+<div class="col-12 col-md-6 mb-4">
+  <div class="card h-100 shadow-sm">
     <div class="card-body">
-    <% record = result[:class_name].constantize.find(result[:id]) %>
+      <% record = result[:class_name].constantize.find(result[:id]) %>
       <div id="<%= record.id %>">
 
         <p>
@@ -9,10 +9,10 @@
           <%= result[:class_name] %>
         </p>
 
-          <p>
-            <strong>Title:</strong>
-            <%= record.id %>
-          </p>
+        <p>
+          <strong>Title:</strong>
+          <%= record.id %>
+        </p>
 
         <p>
           <%= link_to "View Details", result.class.name, class: 'btn btn-primary' %>

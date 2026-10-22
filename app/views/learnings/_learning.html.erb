@@ -1,26 +1,22 @@
-<div class="col-md-6 mb-4">
-  <div class="card">
-    <div class="card-body">
-      <div id="<%= dom_id learning %>">
-        <p>
-          <strong>Title:</strong>
-          <%= learning.title %>
-        </p>
+<div class="card h-100 shadow-sm">
+  <div class="card-body" id="<%= dom_id learning %>">
+    <p>
+      <strong>Title:</strong>
+      <%= learning.title %>
+    </p>
 
-        <p>
-          <strong>Concepts:</strong>
-          <%= raw(learning.concepts) %>
-        </p>
+    <div class="mb-3">
+      <strong>Concepts:</strong>
+      <%= raw(learning.concepts) %>
+    </div>
 
-        <p>
-          <strong>Finished:</strong>
-          <%= learning.finished %>
-        </p>
+    <p>
+      <strong>Finished:</strong>
+      <%= learning.finished %>
+    </p>
 
-        <p>
-          <%= link_to "Show this learning", learning, class: 'btn btn-success' %>
-        </p>
-      </div>
+    <div class="mt-3">
+      <%= link_to "Show this learning", learning, class: 'btn btn-outline-primary btn-sm' %>
     </div>
   </div>
 </div>

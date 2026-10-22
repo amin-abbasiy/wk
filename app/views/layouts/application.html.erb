@@ -17,11 +17,15 @@
   <body>
     <%= render 'layouts/shared/navigation' %>
 
-    <div class="container mt-2">
-      <% if notice.present? %><div class="alert alert-success"><%= notice %></div><% end %>
-      <% if alert.present? %><div class="alert alert-danger"><%= alert %></div><% end %>
-    </div>
+    <main class="container py-4">
+      <% if notice.present? %>
+        <div class="alert alert-success" role="status"><%= notice %></div>
+      <% end %>
+      <% if alert.present? %>
+        <div class="alert alert-danger" role="alert"><%= alert %></div>
+      <% end %>
 
-    <%= yield %>
+      <%= yield %>
+    </main>
   </body>
 </html>

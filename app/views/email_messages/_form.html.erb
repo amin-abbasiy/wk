@@ -1,27 +1,17 @@
 <%= form_with(model: email_message) do |form| %>
-  <% if email_message.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(email_message.errors.count, "error") %> prohibited this email_message from being saved:</h2>
+  <%= render "layouts/shared/form_errors", record: email_message, resource_name: "email_message" %>
 
-      <ul>
-        <% email_message.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :message, style: "display: block" %>
-    <%= form.cktext_area :message %>
+  <div class="mb-3">
+    <%= form.label :message, class: "form-label" %>
+    <%= form.cktext_area :message, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :response, style: "display: block" %>
-    <%= form.cktext_area :response %>
+  <div class="mb-3">
+    <%= form.label :response, class: "form-label" %>
+    <%= form.cktext_area :response, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-4">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

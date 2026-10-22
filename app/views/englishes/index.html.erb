@@ -1,15 +1,16 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Englishes</h1>
-
-<div id="englishes">
-  <div class="container">
-    <div class="row">
-      <% @englishes.each do |english| %>
-        <%= render english %>
-      <% end %>
-    </div>
-  </div>
+<div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+  <h1 class="h2 mb-0">Englishes</h1>
+  <%= link_to "New english", new_english_path, class: "btn btn-primary" %>
 </div>
-<%= render "form", english: English.new %>
-<%= link_to "New english", new_english_path %>
+
+<div id="englishes" class="row g-4">
+  <% @englishes.each do |english| %>
+    <div class="col-12 col-md-6 col-xl-4">
+      <%= render english %>
+    </div>
+  <% end %>
+</div>
+
+<div class="mt-4 pt-4 border-top">
+  <%= render "form", english: English.new %>
+</div>

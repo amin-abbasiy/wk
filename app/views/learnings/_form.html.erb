@@ -1,32 +1,22 @@
 <%= form_with(model: learning) do |form| %>
-  <% if learning.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(learning.errors.count, "error") %> prohibited this learning from being saved:</h2>
+  <%= render "layouts/shared/form_errors", record: learning, resource_name: "learning" %>
 
-      <ul>
-        <% learning.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :concepts, style: "display: block" %>
-    <%= form.cktext_area :concepts %>
+  <div class="mb-3">
+    <%= form.label :concepts, class: "form-label" %>
+    <%= form.cktext_area :concepts, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :finished, style: "display: block" %>
-    <%= form.check_box :finished %>
+  <div class="form-check mb-3">
+    <%= form.check_box :finished, class: "form-check-input" %>
+    <%= form.label :finished, class: "form-check-label" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-4">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

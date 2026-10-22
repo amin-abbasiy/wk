@@ -1,82 +1,72 @@
 <%= form_with(model: interview_cheat_sheet) do |form| %>
-  <% if interview_cheat_sheet.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(interview_cheat_sheet.errors.count, "error") %> prohibited this interview_cheat_sheet from being saved:</h2>
+  <%= render "layouts/shared/form_errors", record: interview_cheat_sheet, resource_name: "interview_cheat_sheet" %>
 
-      <ul>
-        <% interview_cheat_sheet.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :date, style: "display: block" %>
-    <%= form.datetime_field :date %>
+  <div class="mb-3">
+    <%= form.label :date, class: "form-label" %>
+    <%= form.datetime_field :date, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :location, style: "display: block" %>
-    <%= form.text_field :location %>
+  <div class="mb-3">
+    <%= form.label :location, class: "form-label" %>
+    <%= form.text_field :location, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :company, style: "display: block" %>
-    <%= form.text_field :company %>
+  <div class="mb-3">
+    <%= form.label :company, class: "form-label" %>
+    <%= form.text_field :company, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :positon, style: "display: block" %>
-    <%= form.text_field :positon %>
+  <div class="mb-3">
+    <%= form.label :positon, class: "form-label" %>
+    <%= form.text_field :positon, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :interviewers, style: "display: block" %>
-    <%= form.cktext_area :interviewers %>
+  <div class="mb-3">
+    <%= form.label :interviewers, class: "form-label" %>
+    <%= form.cktext_area :interviewers, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :company_info, style: "display: block" %>
-    <%= form.cktext_area :company_info %>
+  <div class="mb-3">
+    <%= form.label :company_info, class: "form-label" %>
+    <%= form.cktext_area :company_info, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :my_pitch, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :my_pitch, class: "form-label" %>
     <%= form.cktext_area :my_pitch, class: "form-control", rows: "5", ckeditor: { language: 'uk'} %>
   </div>
 
-  <div>
-    <%= form.label :accomplishments_skills, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :accomplishments_skills, class: "form-label" %>
     <%= form.cktext_area :accomplishments_skills, class: "form-control", rows: "5", ckeditor: { language: 'uk'} %>
   </div>
 
-  <div>
-    <%= form.label :reason_about_position, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :reason_about_position, class: "form-label" %>
     <%= form.cktext_area :reason_about_position, class: "form-control", rows: "5", ckeditor: { language: 'uk'} %>
   </div>
 
-  <div>
-    <%= form.label :my_questions, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :my_questions, class: "form-label" %>
     <%= form.cktext_area :my_questions, class: "form-control", rows: "5", ckeditor: { language: 'uk'} %>
   </div>
 
-  <div>
-    <%= form.label :predicted_question_answers, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :predicted_question_answers, class: "form-label" %>
     <%= form.cktext_area :predicted_question_answers, class: "form-control", rows: "5", ckeditor: { language: 'uk'} %>
   </div>
 
-  <div>
-    <%= form.label :my_first_impression, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :my_first_impression, class: "form-label" %>
     <%= form.cktext_area :my_first_impression, class: "form-control", rows: "5", ckeditor: { language: 'uk'} %>
   </div>
 
-  <div>
-    <%= form.label :result, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :result, class: "form-label" %>
     <%= form.cktext_area :result, class: "form-control", rows: "5", ckeditor: { language: 'uk'} %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-4">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

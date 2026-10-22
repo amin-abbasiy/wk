@@ -1,10 +1,10 @@
-<p style="color: green"><%= notice %></p>
+<%= render layout: "tasks/table" do %>
+  <%= render @task %>
+<% end %>
 
-<%= render @task %>
+<div class="d-flex flex-wrap align-items-center gap-2 mt-4 pt-3 border-top">
+  <%= link_to "Edit this task", edit_task_path(@task), class: "btn btn-primary" %>
+  <%= link_to "Back to tasks", tasks_path, class: "btn btn-outline-secondary" %>
 
-<div>
-  <%= link_to "Edit this task", edit_task_path(@task) %> |
-  <%= link_to "Back to tasks", tasks_path %>
-
-  <%= button_to "Destroy this task", @task, method: :delete %>
+  <%= button_to "Destroy this task", @task, method: :delete, class: "btn btn-outline-danger" %>
 </div>

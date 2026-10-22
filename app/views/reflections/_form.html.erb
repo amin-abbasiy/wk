@@ -1,42 +1,32 @@
 <%= form_with(model: reflection) do |form| %>
-  <% if reflection.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(reflection.errors.count, "error") %> prohibited this reflection from being saved:</h2>
+  <%= render "layouts/shared/form_errors", record: reflection, resource_name: "reflection" %>
 
-      <ul>
-        <% reflection.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
     <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :place, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :place, class: "form-label" %>
     <%= form.text_field :place, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :nature, style: "display: block" %>
-    <%= form.select :nature, Reflection.natures.keys.map { |type| [type.humanize, type] }, class: 'form-control' %>
+  <div class="mb-3">
+    <%= form.label :nature, class: "form-label" %>
+    <%= form.select :nature, Reflection.natures.keys.map { |type| [type.humanize, type] }, {}, class: 'form-select' %>
   </div>
 
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.cktext_area :content %>
+  <div class="mb-3">
+    <%= form.label :content, class: "form-label" %>
+    <%= form.cktext_area :content, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :action, style: "display: block" %>
-    <%= form.cktext_area :action %>
+  <div class="mb-3">
+    <%= form.label :action, class: "form-label" %>
+    <%= form.cktext_area :action, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-4">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

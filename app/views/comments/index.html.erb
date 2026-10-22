@@ -1,14 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Comments</h1>
-
-<div id="comments">
-  <% @comments.each do |comment| %>
-    <%= render comment %>
-    <p>
-      <%= link_to "Show this comment", comment %>
-    </p>
-  <% end %>
+<div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+  <h1 class="h2 mb-0">Comments</h1>
+  <%= link_to "New comment", new_comment_path, class: "btn btn-primary" %>
 </div>
 
-<%= link_to "New comment", new_comment_path %>
+<div id="comments" class="vstack gap-4">
+  <% @comments.each do |comment| %>
+    <div>
+      <%= render comment %>
+      <p class="mt-2 mb-0">
+        <%= link_to "Show this comment", comment, class: "btn btn-outline-primary btn-sm" %>
+      </p>
+    </div>
+  <% end %>
+</div>

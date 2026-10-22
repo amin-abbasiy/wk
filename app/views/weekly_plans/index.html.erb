@@ -1,14 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Weekly plans</h1>
-
-<div id="weekly_plans">
-  <% @weekly_plans.each do |weekly_plan| %>
-    <%= render weekly_plan %>
-    <p>
-      <%= link_to "Show this weekly plan", weekly_plan %>
-    </p>
-  <% end %>
+<div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3">
+  <h1 class="h2 mb-0">Weekly plans</h1>
+  <%= link_to "New weekly plan", new_weekly_plan_path, class: "btn btn-primary" %>
 </div>
 
-<%= link_to "New weekly plan", new_weekly_plan_path %>
+<div id="weekly_plans" class="vstack gap-4">
+  <% @weekly_plans.each do |weekly_plan| %>
+    <div>
+      <%= render weekly_plan %>
+      <p class="mt-2 mb-0">
+        <%= link_to "Show this weekly plan", weekly_plan, class: "btn btn-outline-primary btn-sm" %>
+      </p>
+    </div>
+  <% end %>
+</div>

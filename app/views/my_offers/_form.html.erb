@@ -1,32 +1,22 @@
 <%= form_with(model: my_offer) do |form| %>
-  <% if my_offer.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(my_offer.errors.count, "error") %> prohibited this my_offer from being saved:</h2>
+  <%= render "layouts/shared/form_errors", record: my_offer, resource_name: "my_offer" %>
 
-      <ul>
-        <% my_offer.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
     <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :story, style: "display: block" %>
-    <%= form.cktext_area :story %>
+  <div class="mb-3">
+    <%= form.label :story, class: "form-label" %>
+    <%= form.cktext_area :story, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :present, style: "display: block" %>
-    <%= form.cktext_area :present %>
+  <div class="mb-3">
+    <%= form.label :present, class: "form-label" %>
+    <%= form.cktext_area :present, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-4">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
