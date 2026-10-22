@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  mount JobApplicationsMcp.app => "/mcp"
   mount Sidekiq::Web => "/sidekiq"
   resources :my_offers
   resources :email_messages
