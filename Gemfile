@@ -72,6 +72,8 @@ gem 'pg', '~> 1.5', '>= 1.5.9'
 # http requests
 gem 'httparty', '~> 0.22.0'
 
+gem "mcp", "~> 1.8"
+
 gem 'pundit', '~> 2.5'
 
 
